@@ -1,0 +1,28 @@
+header {
+    background: url('/static/img/banner.jpg') center top no-repeat fixed;
+    background-size: cover;
+    height: 99vh;
+}
+
+section {
+    margin: 12% 0;
+}
+
+.section-heading {
+    margin-left: 20px;
+    letter-spacing: 10px;
+}
+
+section .card .buttons{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    transform: translateY(2rem);
+    opacity: 0;
+    transition: all .7s ease-in;
+}
+
+section .card:hover .buttons {
+    transform: translateY(-4rem);
+    opacity: 1;
+}

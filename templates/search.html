@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <h1>Showing Results of: {{ q }}</h1>
+
+  <div class="row p-5 w-100">
+    {% for i in products %}
+    <div class="col-md-3 my-3">
+      <div class="card" style="width: 18rem;">
+        <img src="/media/{{i.image}}" style="height: 21rem;" class="card-img-top img-fluid object-fit-cover" alt="...">
+        <div class="card-body d-flex justify-content-between">
+          <h5 class="card-title">{{ i.name }}</h5>
+          <h5 class="card-title">${{ i.price }}</h5>
+        </div>
+        
+        <div class="buttons">
+          <a href="{% url "cartDetail" %}" class="btn-dark btn">Add To Cart</a>
+          <a href="" class="btn-danger btn">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+  {% endfor %}
+
+  </div>
+{% endblock content %}

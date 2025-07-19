@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="row w-100 p-5 mt-5">
+        <div class="col-md-5">
+            <img src="/media/{{product.image}}" class="img-fluid object-fit-cover" alt="">
+        </div>
+        <div class="col">
+            <h4>{{product.name}}</h4>
+            <small class="text-danger" >category: {{product.category}}</small >
+                <br>
+            <small class="text-primary">price: {{product.price}}</small>
+            <p class="my-4">
+                {{product.description}}
+            </p>
+            <div class="buttons">
+                <a href="{% url "cartDetail" %}" class="btn-dark btn">Add To Cart</a>
+                <a href="" class="btn-danger btn">Buy Now</a>
+              </div>
+            <hr>
+            <div class="offers">
+                <h4 class="section-heading my-3">Available Offers</h4>
+
+                <ul>
+                    
+                    
+                    <li>
+                        Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit CardT&C                       
+                    </li>
+                    <li>
+                        Bank Offer10% instant discount on SBI Credit Card Transactions, up to ₹1,250 on orders of ₹4,990 and aboveT&C
+                    </li>
+                    <li>
+                        Bank Offer10% instant discount on SBI Credit Card EMI Transactions, up to ₹1,500 on orders of ₹4,990 and aboveT&C
+                    </li>
+                    <li>
+                        Special PriceGet extra 52% off (price inclusive of cashback/coupon)T&C
+                    </li>
+                    <li>
+                        No Cost EMI on Bajaj Finserv EMI Card on cart value above ₹2999T&C
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <section class="cart">
+        <div class="section-heading">
+            <h1>Your Cart Items</h1>
+        </div>
+
+        <div id="cart" class="cart-details p-5 my-5 container border border-2 border-black rounded-3">
+
+            {% for cart in carts %}
+                            
+            <div class="row w-100 my-3">
+                <div class="col-md-1">
+                    <img src="/media/{{cart.product.image}}" class="img-fluid object-fit-cover"  alt="">
+                </div>
+                <div class="col-md-7">
+                    <h4>{{cart.product.name}}</h4>
+                    <h5>${{cart.product.price}}</h5>
+                </div>
+                <div class="col-md-4 text-end">
+                    <form action="{% url "quantity" cart.id %}" class="d-inline" method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="action" value="decrease" class="btn-warning btn">-</button>
+                    </form>
+
+                    <span class="fw-bold px-2">{{cart.quantity}}</span>
+                    
+                    
+                    <form action="{% url "quantity" cart.id %}"  class="d-inline" method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="action" value="increase" class="btn-success btn">+</button>
+                    </form>
+
+                    <a href="{% url "removeCart" cart.id %}" class="btn-danger btn">x</a>
+                </div>
+
+            </div>
+            
+            
+            {% endfor %}
+            <p>Total Items: {{ total_quantity }}</p>
+            <p>Total Price: {{ total_price }}</p>
+
+            
+            
+        </div>
+
+    </section>
+
+
+{% endblock content %}
